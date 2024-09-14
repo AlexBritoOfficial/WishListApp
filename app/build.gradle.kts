@@ -81,5 +81,8 @@ dependencies {
     implementation("androidx.compose.ui:ui:1.7.1")
     implementation("androidx.compose.material:material:1.7.1")
     implementation("androidx.compose.ui:ui-tooling-preview:1.7.0")
+    // https://mvnrepository.com/artifact/androidx.lifecycle/lifecycle-viewmodel-compose
+    runtimeOnly("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.5")
+
 
 }
