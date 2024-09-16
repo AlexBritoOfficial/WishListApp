@@ -1,6 +1,5 @@
 package com.example.wishlistapp.composables
 
-import android.widget.Toast
 //import androidx.compose.foundation.layout.FlowRowScopeInstance.weight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Icon
@@ -16,10 +15,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import com.example.DummyWish
+import androidx.navigation.NavController
+import com.example.wishlistapp.model.DummyWish
+import com.example.wishlistapp.navigation.Screen
+import com.example.wishlistapp.viewmodel.WishViewModel
 
 @Composable
-fun HomeView() {
+fun HomeView(wishViewModel: WishViewModel,
+             navController: NavController) {
 
     Scaffold(topBar = {
         AppBarView(
@@ -30,6 +33,7 @@ fun HomeView() {
             FloatingActionButton(
                 onClick = {
                     /** TODO Navigation Functionality **/
+                    navController.navigate(Screen.AddScreen.route)
                 },
                 modifier = Modifier.padding(all = 20.dp),
                 contentColor = Color.White,
@@ -49,7 +53,9 @@ fun HomeView() {
         ) {
 
             items(DummyWish.wishList) {
-                wish -> WishItem(wish = wish, {})
+                wish -> WishItem(wish = wish, {
+                    navController.navigate(Screen.AddScreen.route)
+            })
             }
         }
     }
