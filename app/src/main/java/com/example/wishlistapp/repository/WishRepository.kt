@@ -12,8 +12,8 @@ class WishRepository(private val wishDao: WishDao) {
 
     fun getWishes(): Flow<List<Wish>> = wishDao.getAllWishes()
 
-    fun getWish(id:Long){
-        wishDao.getWish(id)
+    fun getWish(id:Long): Flow<Wish>{
+        return wishDao.getWish(id)
     }
 
     suspend fun updateWish(wish:Wish){
